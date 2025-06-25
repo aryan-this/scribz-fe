@@ -3,14 +3,19 @@ import { PlusButton } from "./components/customComp/plusButton"
 import { ShareButton } from "./components/customComp/shareButton"
 import ProjectCard from "./components/customComp/mainCard.tsx"
 import { EntryModal } from "./components/customComp/EntryModal.tsx"
+import { useState } from "react";
 
 function App() {
+
+  const [isModalOpen, setIsModalOpen]= useState(false);
   return (
 
     <div>
-      <EntryModal open={false}/>
+      <EntryModal open={isModalOpen} onClose={()=>{
+        setIsModalOpen(false)
+      }}/>
       <div className ='flex justify-end px-6 py-3 gap-2.5 '>
-      <PlusButton  text='Add' />
+      <PlusButton onClick={()=> setIsModalOpen(true)} text='Add' />
       <ShareButton text='Share' />
     </div>
       <div className='flex p-4 gap-4'>
