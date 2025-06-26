@@ -32,7 +32,7 @@ export default function ProjectCard({title, link, type, description}: CardProps)
   }, []);
   
   return (
-    <Card className="w-[380px]">
+    <Card className="w-[300px] h-[360px]">
       <CardHeader className="flex flex-row items-start justify-between">
         <div className='flex items-center'>
           {type==='tweet' && <IconBrandX className ='cursor-pointer'/>}
@@ -58,7 +58,7 @@ export default function ProjectCard({title, link, type, description}: CardProps)
         </div>
         }
         {type==='tweet' && 
-        <div className="max-h-[250px] overflow-y-auto max-w-full">
+        <div className="max-h-[220px] overflow-y-auto max-w-full">
           <blockquote className="twitter-tweet">
             <a href={link.replace('x.com','twitter.com')}></a> 
           </blockquote>
