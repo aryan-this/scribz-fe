@@ -22,8 +22,9 @@ export function Signup(){
             password
         });
         alert('Signed up!')
+        navigate('/signin')
     }
-    navigate('/signin')
+    
 
 
     return <div className='h-screen w-screen bg-purple-200 flex justify-center items-center'>

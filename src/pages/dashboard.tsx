@@ -5,9 +5,12 @@ import ProjectCard from "../components/customComp/mainCard.tsx";
 import { EntryModal } from "../components/customComp/EntryModal.tsx";
 import { useState } from "react";
 import { Sidebar } from "../components/customComp/Sidebar.tsx";
+import { useContent } from "@/hooks/useContent.tsx";
+import { Card } from "@/components/ui/card.tsx";
 
 function Dashboard() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const contents= useContent();
   return (
     <div>
       <Sidebar/>
@@ -23,6 +26,13 @@ function Dashboard() {
           <ShareButton text="Share" />
         </div>
         <div className="flex p-4 gap-4">
+          {contents.map(({type, link, title, description})=> <ProjectCard
+            type={type}
+            link={link}
+            title={title}
+            description={description}/>
+            
+        )}
           <ProjectCard
             link="https://x.com/Tezzathekchen/status/1937165232084049988"
             type="tweet"
