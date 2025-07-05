@@ -6,7 +6,6 @@ import { EntryModal } from "../components/customComp/EntryModal.tsx";
 import { useState } from "react";
 import { Sidebar } from "../components/customComp/Sidebar.tsx";
 import { useContent } from "@/hooks/useContent.tsx";
-import { Card } from "@/components/ui/card.tsx";
 
 function Dashboard() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -25,25 +24,16 @@ function Dashboard() {
           <PlusButton onClick={() => setIsModalOpen(true)} text="Add" />
           <ShareButton text="Share" />
         </div>
-        <div className="flex p-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
+
           {contents.map(({type, link, title, description})=> <ProjectCard
             type={type}
             link={link}
             title={title}
             description={description}/>
-            
+
         )}
-          <ProjectCard
-            link="https://x.com/Tezzathekchen/status/1937165232084049988"
-            type="tweet"
-            description="this is the first tweet I wanna render on the screen"
-          />
-          <ProjectCard
-            title="video"
-            link="https://www.youtube.com/watch?v=YN_mZ67qpBQ"
-            type="youtube"
-            description="this is the video I wanna render on the screen"
-          />
+         
         </div>
       </div>
     </div>
