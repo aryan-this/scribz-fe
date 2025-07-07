@@ -55,7 +55,7 @@ export function EntryModal({ open, onClose }: EntryModalProps) {
 
           <div className="space-y-4 mt-2">
             <Input ref={linkRef} placeholder="Link" />
-            <Input ref={titleRef} placeholder="Title" />
+            <Input ref={titleRef} placeholder="Title" maxLength={13} />
             <Textarea ref={descRef} placeholder="Description" />
 
             <div className="flex justify-center gap-3 pt-2">

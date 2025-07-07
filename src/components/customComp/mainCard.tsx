@@ -37,15 +37,15 @@ export default function ProjectCard({
   }, []);
 
   return (
-    <Card className="w-[300px] h-[360px]">
+    <Card className="w-[300px] ">
       <CardHeader className="flex flex-row items-start justify-between">
         <div className="flex items-center">
           {type === "X" && <IconBrandX className="cursor-pointer" />}
           {type === "Youtube" && (
             <IconBrandYoutube className="cursor-pointer" />
           )}
-          <CardTitle className="ml-2 text-base font-semibold text-gray-800 px-2">
-            {title}
+          <CardTitle className="ml-2 text-base font-semibold text-gray-800 px-2 break-words whitespace-nowrap overflow-hidden text-ellipsis max-w-[180px]">
+            {title?.slice(0, 13)}{title && title.length > 13 ? "..." : ""}
           </CardTitle>
         </div>
         <div className="flex gap-4 pt-0">
@@ -55,7 +55,7 @@ export default function ProjectCard({
       </CardHeader>
 
       <CardContent>
-        <div>{description}</div>
+        <div className="px-2 py-1 text-sm text-gray-700 break-words whitespace-normal overflow-hidden">{description}</div>
         <div>
           {type === "Youtube" && (
             <div className="mt-5 w-full h-0 pb-[56.25%] relative overflow-hidden">
